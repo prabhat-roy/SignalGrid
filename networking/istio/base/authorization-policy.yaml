@@ -1,0 +1,20 @@
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata: { name: signalgrid-default-deny, namespace: signalgrid }
+spec:
+  action: DENY
+  rules: [{}]
+---
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata: { name: allow-from-platform, namespace: signalgrid }
+spec:
+  action: ALLOW
+  rules:
+    - from:
+        - source:
+            principals:
+              - cluster.local/ns/signalgrid/sa/api-gateway
+              - cluster.local/ns/signalgrid/sa/ops-bff
+              - cluster.local/ns/signalgrid/sa/customer-bff
+              - cluster.local/ns/signalgrid/sa/trader-bff

@@ -1,0 +1,9 @@
+apiVersion: velero.io/v1
+kind: Schedule
+metadata: { name: signalgrid-daily, namespace: velero }
+spec:
+  schedule: "0 2 * * *"
+  template:
+    includedNamespaces: [signalgrid, signalgrid-grid-ops, signalgrid-ami, signalgrid-trading, signalgrid-derms]
+    snapshotVolumes: true
+    ttl: 720h0m0s
