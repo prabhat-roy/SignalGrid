@@ -1,0 +1,32 @@
+title = "SignalGrid — Gitleaks config"
+
+[allowlist]
+description = "Allow project documentation patterns"
+paths = [
+  '''docs/architecture/.*''',
+  '''docs/runbooks/.*''',
+]
+
+[[rules]]
+id = "signalgrid-imsi"
+description = "IMSI — 15-digit subscriber identity (3GPP TS 23.003)"
+regex = '''\b\d{15}\b'''
+tags = ["pii", "telecom", "imsi"]
+
+[[rules]]
+id = "signalgrid-msisdn"
+description = "MSISDN — phone number (E.164 with country code)"
+regex = '''\+\d{8,15}\b'''
+tags = ["pii", "telecom", "msisdn"]
+
+[[rules]]
+id = "signalgrid-iccid"
+description = "ICCID — SIM card unique identifier (19-20 digits)"
+regex = '''\b89\d{17,18}\b'''
+tags = ["pii", "telecom", "iccid"]
+
+[[rules]]
+id = "signalgrid-imei"
+description = "IMEI — device identifier (15 digits, Luhn)"
+regex = '''\b35\d{13}\b'''
+tags = ["pii", "telecom", "imei"]

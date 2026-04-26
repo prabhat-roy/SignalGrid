@@ -104,6 +104,16 @@ Cargo.lock
 **/*.rs.bk
 
 # ============================================================
+# Erlang / Elixir / BEAM
+# ============================================================
+_build/
+deps/
+*.beam
+erl_crash.dump
+.elixir_ls/
+mix.lock
+
+# ============================================================
 # Scala / sbt
 # ============================================================
 project/project/
@@ -144,7 +154,10 @@ postgres-data/
 mongo-data/
 redis-data/
 kafka-data/
+cassandra-data/
+clickhouse-data/
 
 # Claude-specific local files (not pushed)
 CLAUDE.md
 memory/
+.services.json

@@ -1,0 +1,172 @@
+# SignalGrid — local development stack
+# `make compose-up` brings up the full data-plane: PostgreSQL, Cassandra (CDR archive),
+# TimescaleDB (network KPIs), ClickHouse (OLAP), Redis (prepaid balance), Kafka,
+# MinIO, Keycloak, Vault, observability stack, and a separate lawful-intercept
+# Postgres cluster on a non-default port.
+
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: signalgrid-postgres
+    environment:
+      POSTGRES_USER: signalgrid
+      POSTGRES_PASSWORD: signalgrid
+      POSTGRES_DB: signalgrid
+    ports: ["5432:5432"]
+    volumes: ["postgres-data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U signalgrid"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # Lawful-intercept Postgres — siloed cluster, separate keys, dedicated namespace in K8s.
+  # Audit on every read; never co-mingled with primary transactional Postgres.
+  postgres-li:
+    image: postgres:16
+    container_name: signalgrid-postgres-li
+    environment:
+      POSTGRES_USER: li_app
+      POSTGRES_PASSWORD: change-me
+      POSTGRES_DB: lawful_intercept
+    ports: ["5433:5432"]
+    volumes: ["postgres-li-data:/var/lib/postgresql/data"]
+
+  timescaledb:
+    image: timescale/timescaledb:latest-pg16
+    container_name: signalgrid-timescaledb
+    environment:
+      POSTGRES_USER: signalgrid
+      POSTGRES_PASSWORD: signalgrid
+      POSTGRES_DB: network_metrics
+    ports: ["5434:5432"]
+    volumes: ["timescale-data:/var/lib/postgresql/data"]
+
+  cassandra:
+    image: cassandra:5.0
+    container_name: signalgrid-cassandra
+    ports: ["9042:9042"]
+    environment:
+      CASSANDRA_CLUSTER_NAME: SignalGrid
+      CASSANDRA_DC: dc1
+    volumes: ["cassandra-data:/var/lib/cassandra"]
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:24.10
+    container_name: signalgrid-clickhouse
+    ports: ["8123:8123", "9000:9000"]
+    ulimits:
+      nofile: { soft: 262144, hard: 262144 }
+    volumes: ["clickhouse-data:/var/lib/clickhouse"]
+
+  mongodb:
+    image: mongo:8.0
+    container_name: signalgrid-mongo
+    ports: ["27017:27017"]
+    volumes: ["mongo-data:/data/db"]
+
+  redis:
+    image: redis:7-alpine
+    container_name: signalgrid-redis
+    ports: ["6379:6379"]
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes: ["redis-data:/data"]
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.7.1
+    container_name: signalgrid-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  kafka:
+    image: confluentinc/cp-kafka:7.7.1
+    container_name: signalgrid-kafka
+    depends_on: [zookeeper]
+    ports: ["9092:9092"]
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  schema-registry:
+    image: confluentinc/cp-schema-registry:7.7.1
+    container_name: signalgrid-schema-registry
+    depends_on: [kafka]
+    ports: ["8081:8081"]
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka:29092
+
+  minio:
+    image: minio/minio:latest
+    container_name: signalgrid-minio
+    command: ["server", "/data", "--console-address", ":9001"]
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    ports: ["9100:9000", "9101:9001"]
+    volumes: ["minio-data:/data"]
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:25.0
+    container_name: signalgrid-keycloak
+    command: ["start-dev"]
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports: ["8080:8080"]
+
+  vault:
+    image: hashicorp/vault:1.17
+    container_name: signalgrid-vault
+    cap_add: [IPC_LOCK]
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: root
+      VAULT_DEV_LISTEN_ADDRESS: "0.0.0.0:8200"
+    ports: ["8200:8200"]
+
+  prometheus:
+    image: prom/prometheus:v2.55.0
+    container_name: signalgrid-prometheus
+    ports: ["9090:9090"]
+    volumes: ["./observability/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro"]
+
+  grafana:
+    image: grafana/grafana:11.2.0
+    container_name: signalgrid-grafana
+    ports: ["3001:3000"]
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin
+
+  loki:
+    image: grafana/loki:3.2.0
+    container_name: signalgrid-loki
+    ports: ["3100:3100"]
+
+  jaeger:
+    image: jaegertracing/all-in-one:1.61
+    container_name: signalgrid-jaeger
+    ports: ["16686:16686", "4317:4317", "4318:4318"]
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.111.0
+    container_name: signalgrid-otel
+    command: ["--config=/etc/otel-collector.yaml"]
+    volumes: ["./observability/otel-collector/otel-collector.yaml:/etc/otel-collector.yaml:ro"]
+    ports: ["4319:4317"]
+
+volumes:
+  postgres-data:
+  postgres-li-data:
+  timescale-data:
+  cassandra-data:
+  clickhouse-data:
+  mongo-data:
+  redis-data:
+  minio-data:

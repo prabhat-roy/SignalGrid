@@ -1,6 +1,6 @@
 # Getting Started
 
-> Quickstart for developers joining this project. For the full architecture, read
+> Quickstart for developers joining SignalGrid. For the full architecture, read
 > [README.md](README.md) and [CLAUDE.md](CLAUDE.md).
 
 ---
@@ -20,9 +20,11 @@ Language toolchains (install only what you need for the services you'll touch):
 | Java | 21 | <https://adoptium.net/> |
 | Kotlin | 2.x | bundled with Gradle |
 | Python | 3.12+ | <https://www.python.org/> |
-| Node.js | 22+ | <https://nodejs.org/> |
 | Rust | 1.80+ | <https://rustup.rs/> |
-| TypeScript | 5+ | via npm |
+| Erlang/OTP | 27+ | <https://www.erlang.org/downloads> |
+| Elixir | 1.17+ | <https://elixir-lang.org/install.html> |
+| Scala | 3.5+ (with sbt) | <https://www.scala-lang.org/> |
+| Node.js | 22+ | <https://nodejs.org/> |
 
 Optional but recommended:
 
@@ -35,10 +37,10 @@ Optional but recommended:
 
 ## First-time setup
 
-`ash
+```bash
 # 1. Clone and enter the project
-git clone <git-url>
-cd <project>
+git clone https://github.com/prabhat-roy/SignalGrid
+cd SignalGrid
 
 # 2. Copy the env template
 cp .env.example .env
@@ -46,22 +48,23 @@ cp .env.example .env
 # 3. Install local dev tooling
 make bootstrap
 
-# 4. Start the local stack (Postgres, Mongo, Redis, Kafka, MinIO, Keycloak, etc.)
+# 4. Start the local stack (Postgres, Cassandra, TimescaleDB, ClickHouse,
+#    Redis, Kafka, MinIO, Keycloak, Vault, signalling simulators)
 make compose-up
 
 # 5. Verify services are healthy
 docker compose ps
-`
+```
 
 ---
 
 ## Running tests
 
-`ash
+```bash
 make test         # all tests across all services
 make lint         # lint everything
 make fmt          # format everything
-`
+```
 
 ---
 
@@ -69,29 +72,29 @@ make fmt          # format everything
 
 Each service lives under `src/<domain>/<service>/` and has its own `Makefile`.
 
-`ash
+```bash
 cd src/<domain>/<service>
 make run          # start the service against the local stack
 make test         # service-local tests
-`
+```
 
 ---
 
 ## Generating proto bindings
 
-`ash
+```bash
 make proto        # regenerates all gRPC bindings from proto/
-`
+```
 
 ---
 
 ## Deploying to local Kubernetes
 
-`ash
-kind create cluster --name local
+```bash
+kind create cluster --name signalgrid-local
 make deploy-local
 kubectl port-forward svc/api-gateway 8080:80
-`
+```
 
 ---
 
@@ -111,6 +114,7 @@ kubectl port-forward svc/api-gateway 8080:80
 | Observability configs | `observability/` |
 | Architecture decisions | `docs/adr/` |
 | Operational runbooks | `docs/runbooks/` |
+| Lawful-intercept silo | `security/cilium/`, `security/opa/policies/lawful-intercept-*` |
 
 ---
 
