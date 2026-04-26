@@ -1,0 +1,7 @@
+﻿{
+  "server": "https://wpt.signalgrid.internal",
+  "tests": [
+    { "url": "https://www.signalgrid.internal/", "location": "Dulles:Chrome", "runs": 3, "connectivity": "4G" },
+    { "url": "https://app.signalgrid.internal/", "location": "Mumbai:Chrome", "runs": 3, "connectivity": "Cable" }
+  ]
+}

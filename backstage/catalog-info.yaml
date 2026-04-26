@@ -1,7 +1,9 @@
-apiVersion: backstage.io/v1alpha1
+﻿apiVersion: backstage.io/v1alpha1
 kind: System
-metadata:
-  name: signalgrid
-  description: Smart Grid & Energy Management Platform
-spec:
-  owner: signalgrid-platform
+metadata: { name: signalgrid, description: SignalGrid enterprise platform }
+spec: { owner: platform-team, domain: signalgrid }
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata: { name: signalgrid }
+spec: { owner: platform-team }

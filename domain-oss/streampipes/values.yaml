@@ -1,0 +1,3 @@
+﻿# Apache StreamPipes — IoT / telco event analytics with low-code pipeline builder
+image: { repository: apache/streampipes-service-core, tag: latest }
+streampipes: { adapters: [mqtt, kafka, opcua] }

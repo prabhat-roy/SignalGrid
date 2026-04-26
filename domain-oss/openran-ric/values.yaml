@@ -1,0 +1,3 @@
+﻿# O-RAN RIC stubs (Near-RT + Non-RT)
+image: { repository: oransc/ric-plt, tag: latest }
+oran: { ric: { near-rt: { enabled: true }, non-rt: { enabled: true } } }

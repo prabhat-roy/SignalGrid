@@ -1,0 +1,3 @@
+﻿# ONAP subset — SO + SDC for service orchestration + design
+image: { repository: onap/so-bpmn-infra, tag: latest }
+onap: { components: [so, sdc, aai, dmaap] }

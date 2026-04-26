@@ -1,0 +1,6 @@
+﻿# Sourcegraph (OSS) — universal code search across SignalGrid
+image: { repository: sourcegraph/server, tag: 5.5.0 }
+sourcegraph:
+  externalURL: https://sourcegraph.signalgrid.internal
+  repositoriesToAdd: [github.com/prabhat-roy/SignalGrid]
+ingress: { enabled: true, hosts: [{ host: sourcegraph.signalgrid.internal }] }
