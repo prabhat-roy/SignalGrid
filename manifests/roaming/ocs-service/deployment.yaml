@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocs-service
+  namespace: signalgrid
+  labels:
+    app.kubernetes.io/name: ocs-service
+    app.kubernetes.io/part-of: signalgrid
+    signalgrid.io/domain: roaming
+spec:
+  replicas: 2
+  selector: { matchLabels: { app.kubernetes.io/name: ocs-service } }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: ocs-service, signalgrid.io/domain: roaming }
+    spec:
+      serviceAccountName: ocs-service
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, fsGroup: 1000 }
+      containers:
+        - name: ocs-service
+          image: harbor.signalgrid.internal/signalgrid/ocs-service:latest
+          ports: [{ containerPort: 50182, name: http }]
+          envFrom: [{ configMapRef: { name: ocs-service } }]
+          livenessProbe:  { httpGet: { path: /healthz, port: 50182 }, initialDelaySeconds: 15 }
+          readinessProbe: { httpGet: { path: /healthz, port: 50182 }, initialDelaySeconds: 5 }
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits:   { cpu: 1000m, memory: 512Mi }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }

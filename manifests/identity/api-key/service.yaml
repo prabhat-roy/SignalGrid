@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-key
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: api-key, signalgrid.io/domain: identity }
+spec:
+  type: ClusterIP
+  ports: [{ name: http, port: 50024, targetPort: 50024 }]
+  selector: { app.kubernetes.io/name: api-key }

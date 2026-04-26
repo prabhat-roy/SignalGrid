@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: support-service
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: support-service, signalgrid.io/domain: customer }
+data:
+  LOG_LEVEL: info
+  PORT: "50221"

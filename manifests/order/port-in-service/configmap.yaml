@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: port-in-service
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: port-in-service, signalgrid.io/domain: order }
+data:
+  LOG_LEVEL: info
+  PORT: "50082"

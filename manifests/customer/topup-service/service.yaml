@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: topup-service
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: topup-service, signalgrid.io/domain: customer }
+spec:
+  type: ClusterIP
+  ports: [{ name: http, port: 50223, targetPort: 50223 }]
+  selector: { app.kubernetes.io/name: topup-service }

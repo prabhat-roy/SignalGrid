@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wangiri-service
+  namespace: signalgrid
+  labels:
+    app.kubernetes.io/name: wangiri-service
+    app.kubernetes.io/part-of: signalgrid
+    signalgrid.io/domain: fraud
+spec:
+  replicas: 2
+  selector: { matchLabels: { app.kubernetes.io/name: wangiri-service } }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: wangiri-service, signalgrid.io/domain: fraud }
+    spec:
+      serviceAccountName: wangiri-service
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, fsGroup: 1000 }
+      containers:
+        - name: wangiri-service
+          image: harbor.signalgrid.internal/signalgrid/wangiri-service:latest
+          ports: [{ containerPort: 50264, name: http }]
+          envFrom: [{ configMapRef: { name: wangiri-service } }]
+          livenessProbe:  { httpGet: { path: /healthz, port: 50264 }, initialDelaySeconds: 15 }
+          readinessProbe: { httpGet: { path: /healthz, port: 50264 }, initialDelaySeconds: 5 }
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits:   { cpu: 1000m, memory: 512Mi }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }

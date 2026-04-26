@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pcf-service
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: pcf-service, signalgrid.io/domain: 5g-core }
+data:
+  LOG_LEVEL: info
+  PORT: "50163"

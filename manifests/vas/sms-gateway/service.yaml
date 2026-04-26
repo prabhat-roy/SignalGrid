@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sms-gateway
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: sms-gateway, signalgrid.io/domain: vas }
+spec:
+  type: ClusterIP
+  ports: [{ name: http, port: 50320, targetPort: 50320 }]
+  selector: { app.kubernetes.io/name: sms-gateway }

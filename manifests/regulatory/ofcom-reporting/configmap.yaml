@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ofcom-reporting
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: ofcom-reporting, signalgrid.io/domain: regulatory }
+data:
+  LOG_LEVEL: info
+  PORT: "50283"

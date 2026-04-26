@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rap-service
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: rap-service, signalgrid.io/domain: roaming }
+data:
+  LOG_LEVEL: info
+  PORT: "50181"

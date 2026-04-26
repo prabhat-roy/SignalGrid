@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: operator-sso
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: operator-sso, signalgrid.io/domain: identity }
+data:
+  LOG_LEVEL: info
+  PORT: "50022"

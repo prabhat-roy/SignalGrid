@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fra-service
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: fra-service, signalgrid.io/domain: fraud }
+data:
+  LOG_LEVEL: info
+  PORT: "50260"

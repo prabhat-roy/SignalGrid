@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: content-billing
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: content-billing, signalgrid.io/domain: vas }
+data:
+  LOG_LEVEL: info
+  PORT: "50323"

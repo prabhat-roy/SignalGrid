@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: retail-service
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: retail-service, signalgrid.io/domain: channel }
+spec:
+  type: ClusterIP
+  ports: [{ name: http, port: 50243, targetPort: 50243 }]
+  selector: { app.kubernetes.io/name: retail-service }

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fiber-service
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: fiber-service, signalgrid.io/domain: inventory }
+data:
+  LOG_LEVEL: info
+  PORT: "50123"

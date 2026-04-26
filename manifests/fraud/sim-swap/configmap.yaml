@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sim-swap
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: sim-swap, signalgrid.io/domain: fraud }
+data:
+  LOG_LEVEL: info
+  PORT: "50263"

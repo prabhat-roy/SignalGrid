@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: revenue-analytics
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: revenue-analytics, signalgrid.io/domain: analytics }
+data:
+  LOG_LEVEL: info
+  PORT: "50301"

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-key
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: api-key, signalgrid.io/domain: identity }
+data:
+  LOG_LEVEL: info
+  PORT: "50024"

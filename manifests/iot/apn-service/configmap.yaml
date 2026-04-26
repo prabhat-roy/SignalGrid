@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: apn-service
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: apn-service, signalgrid.io/domain: iot }
+data:
+  LOG_LEVEL: info
+  PORT: "50201"

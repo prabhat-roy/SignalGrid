@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "ofcom-reporting.fullname" . }}
+  labels: {{- include "ofcom-reporting.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - { port: {{ .Values.service.port }}, targetPort: http, protocol: TCP, name: http }
+  selector: {{- include "ofcom-reporting.selectorLabels" . | nindent 4 }}

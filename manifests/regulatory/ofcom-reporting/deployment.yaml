@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ofcom-reporting
+  namespace: signalgrid
+  labels:
+    app.kubernetes.io/name: ofcom-reporting
+    app.kubernetes.io/part-of: signalgrid
+    signalgrid.io/domain: regulatory
+spec:
+  replicas: 2
+  selector: { matchLabels: { app.kubernetes.io/name: ofcom-reporting } }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: ofcom-reporting, signalgrid.io/domain: regulatory }
+    spec:
+      serviceAccountName: ofcom-reporting
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, fsGroup: 1000 }
+      containers:
+        - name: ofcom-reporting
+          image: harbor.signalgrid.internal/signalgrid/ofcom-reporting:latest
+          ports: [{ containerPort: 50283, name: http }]
+          envFrom: [{ configMapRef: { name: ofcom-reporting } }]
+          livenessProbe:  { httpGet: { path: /healthz, port: 50283 }, initialDelaySeconds: 15 }
+          readinessProbe: { httpGet: { path: /healthz, port: 50283 }, initialDelaySeconds: 5 }
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits:   { cpu: 1000m, memory: 512Mi }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }

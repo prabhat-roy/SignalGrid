@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: m2m-service
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: m2m-service, signalgrid.io/domain: iot }
+data:
+  LOG_LEVEL: info
+  PORT: "50200"

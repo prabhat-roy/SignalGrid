@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: subscriber-sso
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: subscriber-sso, signalgrid.io/domain: identity }
+data:
+  LOG_LEVEL: info
+  PORT: "50021"

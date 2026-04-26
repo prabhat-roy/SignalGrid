@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ne-service
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: ne-service, signalgrid.io/domain: inventory }
+data:
+  LOG_LEVEL: info
+  PORT: "50122"

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alarm-correlation
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: alarm-correlation, signalgrid.io/domain: nms }
+data:
+  LOG_LEVEL: info
+  PORT: "50143"

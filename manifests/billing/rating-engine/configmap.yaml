@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rating-engine
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: rating-engine, signalgrid.io/domain: billing }
+data:
+  LOG_LEVEL: info
+  PORT: "50101"
