@@ -1,0 +1,15 @@
+# Open5GS — open-source 5G core (alternative to commercial CNFs)
+core:
+  amf:    { replicas: 2 }
+  smf:    { replicas: 2 }
+  upf:    { replicas: 3 }
+  pcf:    { replicas: 1 }
+  nssf:   { replicas: 1 }
+  ausf:   { replicas: 1 }
+  udm:    { replicas: 1 }
+  udr:    { replicas: 1 }
+mongodb: { enabled: true }
+webui:
+  ingress:
+    enabled: true
+    hosts: [{ host: open5gs.signalgrid.internal }]
