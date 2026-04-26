@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package signalgrid.common.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.signalgrid.common.v1";
+option java_multiple_files = true;
+
+// MsisdnRef - tokenised MSISDN reference; raw E.164 number sealed in Vault.
+// All inter-service calls reference subscribers via MsisdnRef, never raw MSISDN/IMSI.
+message MsisdnRef {
+  string token = 1;
+}
+
+// ImsiRef - tokenised IMSI; reverse lookup gated by Vault and audited.
+message ImsiRef {
+  string token = 1;
+}
+
+// IccidRef - tokenised SIM Integrated Circuit Card Identifier.
+message IccidRef {
+  string token = 1;
+}
+
+// SubscriberRef - opaque subscriber handle used across BSS/OSS.
+message SubscriberRef {
+  string id = 1;
+}
+
+// NetworkElementRef - identifier of a network element (eNodeB/gNodeB, MME, MSC, HLR).
+message NetworkElementRef {
+  string ne_id = 1;
+  string ne_type = 2;
+  string vendor = 3;
+}
+
+// CellRef - identifier of a radio cell (E-UTRAN/NR cell).
+message CellRef {
+  string cell_id = 1;
+  int32 mcc = 2;
+  int32 mnc = 3;
+  int32 tac = 4;
+}
+
+// Money - fixed point monetary amount in minor units (ISO 4217).
+message Money {
+  string currency_code = 1;
+  int64 minor_units = 2;
+}
+
+// PageRequest - pagination request.
+message PageRequest {
+  int32 size = 1;
+  string page_token = 2;
+}
+
+// PageResponse - pagination response.
+message PageResponse {
+  string next_page_token = 1;
+  int64 total_size = 2;
+}
+
+// AuditMetadata - captured on every privileged write.
+message AuditMetadata {
+  string actor_id = 1;
+  string actor_role = 2;
+  string ip_address = 3;
+  string user_agent = 4;
+  google.protobuf.Timestamp event_time = 5;
+}
+
+// LawfulInterceptWarrant - reference to a CALEA / ETSI LI warrant.
+// Any access to lawful-intercept data requires a valid warrant token.
+message LawfulInterceptWarrant {
+  string warrant_id = 1;
+  string issuing_authority = 2;
+  google.protobuf.Timestamp issued_at = 3;
+  google.protobuf.Timestamp expires_at = 4;
+  repeated string targeted_identifiers = 5;
+}
+
+// CdrKey - idempotency key for Call Detail Records: (network_element, charging_id).
+message CdrKey {
+  string network_element = 1;
+  string charging_id = 2;
+}
