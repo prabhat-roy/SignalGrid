@@ -1,0 +1,8 @@
+config:
+  rootDomain: pomerium.signalgrid.internal
+  generateSignedJWT: true
+authenticate:
+  idp:
+    provider: oidc
+    url: https://keycloak.signalgrid.internal
+ingressController: { enabled: true }

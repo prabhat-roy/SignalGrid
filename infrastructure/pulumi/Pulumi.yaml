@@ -1,0 +1,8 @@
+name: signalgrid
+description: SignalGrid — Pulumi alternative IaC (mirrors infra/terraform/{aws,gcp,azure})
+runtime: { name: nodejs, options: { typescript: true } }
+backend:
+  url: s3://signalgrid-pulumi-state
+config:
+  signalgrid:env: prod
+  signalgrid:cloud: aws

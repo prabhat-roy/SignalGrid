@@ -1,0 +1,10 @@
+clusterName: signalgrid.teleport.internal
+authentication:
+  type: github
+  githubConnector:
+    name: github
+    redirectUrl: https://teleport.signalgrid.internal/v1/webapi/github/callback
+kubeClusterName: signalgrid-prod
+ingress:
+  enabled: true
+  hostname: teleport.signalgrid.internal

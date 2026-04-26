@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rate-limit-service
+  namespace: signalgrid
+  labels: { app.kubernetes.io/name: rate-limit-service, signalgrid.io/domain: platform }
+data:
+  LOG_LEVEL: info
+  PORT: "51007"

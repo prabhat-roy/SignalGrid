@@ -1,0 +1,7 @@
+creation_rules:
+  - path_regex: secrets/signalgrid/.*\.yaml
+    kms: arn:aws:kms:us-east-1:111111111111:alias/signalgrid-sops
+  - path_regex: secrets/signalgrid/gcp/.*\.yaml
+    gcp_kms: projects/signalgrid-prod/locations/global/keyRings/signalgrid/cryptoKeys/sops
+  - path_regex: secrets/signalgrid/azure/.*\.yaml
+    azure_keyvault: https://signalgrid-kv.vault.azure.net/keys/sops/abc123
