@@ -1,0 +1,19 @@
+﻿signalgrid:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres.signalgrid.svc
+      user: dbt
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      port: 5432
+      dbname: signalgrid_warehouse
+      schema: public
+      threads: 8
+    prod:
+      type: trino
+      host: trino.signalgrid.svc
+      port: 8080
+      catalog: iceberg
+      schema: signalgrid_mart
+      threads: 16

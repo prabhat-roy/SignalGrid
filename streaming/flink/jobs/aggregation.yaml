@@ -1,0 +1,10 @@
+﻿apiVersion: flink.apache.org/v1beta1
+kind: FlinkSessionJob
+metadata: { name: signalgrid-aggregation, namespace: signalgrid }
+spec:
+  deploymentName: signalgrid-flink
+  job:
+    jarURI: s3://signalgrid-flink-jobs/aggregation.jar
+    parallelism: 8
+    upgradeMode: savepoint
+    args: ["--source-topic", "signalgrid.events.enriched", "--sink-topic", "signalgrid.metrics.aggregated", "--window", "5m"]

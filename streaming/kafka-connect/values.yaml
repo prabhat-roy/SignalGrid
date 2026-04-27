@@ -1,0 +1,9 @@
+﻿image: { repository: confluentinc/cp-kafka-connect, tag: 7.7.1 }
+replicas: 3
+config:
+  bootstrap.servers: kafka.signalgrid.svc:9092
+  group.id: signalgrid-connect
+  config.storage.topic: signalgrid.connect.configs
+  offset.storage.topic: signalgrid.connect.offsets
+  status.storage.topic: signalgrid.connect.status
+  plugin.path: /usr/share/connectors,/usr/share/confluent-hub-components

@@ -1,0 +1,6 @@
+﻿plugins:
+  - { id: tech-radar, config: { url: https://github.com/prabhat-roy/SignalGrid/raw/main/backstage/tech-radar.json } }
+  - { id: lighthouse, config: { baseUrl: https://lhci.signalgrid.internal } }
+  - { id: opencost,   config: { baseUrl: https://opencost.signalgrid.internal } }
+  - { id: argocd,     config: { url: https://argocd.signalgrid.internal, token: "${ARGOCD_TOKEN}" } }
+  - { id: kubernetes, config: { clusters: [{ name: signalgrid-aws, url: https://eks.signalgrid.aws.internal }, { name: signalgrid-gcp, url: https://gke.signalgrid.gcp.internal }, { name: signalgrid-azure, url: https://aks.signalgrid.azure.internal }] } }

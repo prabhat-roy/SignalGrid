@@ -1,0 +1,10 @@
+﻿apiVersion: flink.apache.org/v1beta1
+kind: FlinkSessionJob
+metadata: { name: signalgrid-anomaly-detection, namespace: signalgrid }
+spec:
+  deploymentName: signalgrid-flink
+  job:
+    jarURI: s3://signalgrid-flink-jobs/anomaly-detection.jar
+    parallelism: 6
+    upgradeMode: savepoint
+    args: ["--source-topic", "signalgrid.metrics.raw", "--sink-topic", "signalgrid.alerts.anomaly"]
