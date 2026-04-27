@@ -1,5 +1,5 @@
-# promotion-service
+﻿# promotion-service
 
 Promotions, discount campaigns, eligibility
 
-**Domain:** `product` · **Language:** java · **Port:** 50044
+Domain: `product` Â· Language: java Â· Port: 50044

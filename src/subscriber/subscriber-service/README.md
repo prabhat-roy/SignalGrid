@@ -1,8 +1,8 @@
-# subscriber-service
+﻿# subscriber-service
 
 Subscriber identity, SUPI/SUCI lifecycle, profile
 
-**Domain:** `subscriber` · **Language:** java · **Port:** 50020
+Domain: `subscriber` Â· Language: java Â· Port: 50020
 
 ## Run locally
 
@@ -10,4 +10,4 @@ Subscriber identity, SUPI/SUCI lifecycle, profile
 make run
 ```
 
-Never log subscriber MSISDN/IMSI/IMEI without redaction — see [CLAUDE.md](../../../CLAUDE.md).
+Never log subscriber MSISDN/IMSI/IMEI without redaction â€” see [CLAUDE.md](../../../CLAUDE.md).

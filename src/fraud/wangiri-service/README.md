@@ -1,8 +1,8 @@
-# wangiri-service
+﻿# wangiri-service
 
-Service in the **fraud** domain of SignalGrid.
+Service in the fraud domain of SignalGrid.
 
-**Language:** Go · **Port:** 50264
+Language: Go Â· Port: 50264
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/wangiri-service/](../../../helm/charts/wangiri-service/) — Helm chart
-- [manifests/fraud/wangiri-service/](../../../manifests/fraud/wangiri-service/) — Raw K8s manifests
+- [helm/charts/wangiri-service/](../../../helm/charts/wangiri-service/) â€” Helm chart
+- [manifests/fraud/wangiri-service/](../../../manifests/fraud/wangiri-service/) â€” Raw K8s manifests

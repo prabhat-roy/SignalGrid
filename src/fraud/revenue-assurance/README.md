@@ -1,8 +1,8 @@
-# revenue-assurance
+﻿# revenue-assurance
 
-Service in the **fraud** domain of SignalGrid.
+Service in the fraud domain of SignalGrid.
 
-**Language:** Go · **Port:** 50261
+Language: Go Â· Port: 50261
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/revenue-assurance/](../../../helm/charts/revenue-assurance/) — Helm chart
-- [manifests/fraud/revenue-assurance/](../../../manifests/fraud/revenue-assurance/) — Raw K8s manifests
+- [helm/charts/revenue-assurance/](../../../helm/charts/revenue-assurance/) â€” Helm chart
+- [manifests/fraud/revenue-assurance/](../../../manifests/fraud/revenue-assurance/) â€” Raw K8s manifests

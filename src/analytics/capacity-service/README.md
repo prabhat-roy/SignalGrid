@@ -1,8 +1,8 @@
-# capacity-service
+﻿# capacity-service
 
-Service in the **analytics** domain of SignalGrid.
+Service in the analytics domain of SignalGrid.
 
-**Language:** Go · **Port:** 50303
+Language: Go Â· Port: 50303
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/capacity-service/](../../../helm/charts/capacity-service/) — Helm chart
-- [manifests/analytics/capacity-service/](../../../manifests/analytics/capacity-service/) — Raw K8s manifests
+- [helm/charts/capacity-service/](../../../helm/charts/capacity-service/) â€” Helm chart
+- [manifests/analytics/capacity-service/](../../../manifests/analytics/capacity-service/) â€” Raw K8s manifests

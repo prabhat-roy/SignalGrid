@@ -1,8 +1,8 @@
-# pos-service
+﻿# pos-service
 
-Service in the **channel** domain of SignalGrid.
+Service in the channel domain of SignalGrid.
 
-**Language:** Go · **Port:** 50241
+Language: Go Â· Port: 50241
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/pos-service/](../../../helm/charts/pos-service/) — Helm chart
-- [manifests/channel/pos-service/](../../../manifests/channel/pos-service/) — Raw K8s manifests
+- [helm/charts/pos-service/](../../../helm/charts/pos-service/) â€” Helm chart
+- [manifests/channel/pos-service/](../../../manifests/channel/pos-service/) â€” Raw K8s manifests

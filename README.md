@@ -1,9 +1,9 @@
-# SignalGrid — Enterprise Telecom & Network Management Platform
+﻿# SignalGrid â€” Enterprise Telecom & Network Management Platform
 
 Enterprise-grade, cloud-native telecommunications platform built on open source technologies.
-Covers the full telecom stack — network inventory, BSS/OSS operations, subscriber management,
+Covers the full telecom stack â€” network inventory, BSS/OSS operations, subscriber management,
 billing & mediation, 5G network slicing, IoT connectivity management, roaming, number portability,
-and network analytics — designed for MNOs, MVNOs, ISPs, and telecom infrastructure companies.
+and network analytics â€” designed for MNOs, MVNOs, ISPs, and telecom infrastructure companies.
 Compliant with TM Forum Open APIs, 3GPP standards, and GSMA guidelines.
 
 ---
@@ -12,7 +12,7 @@ Compliant with TM Forum Open APIs, 3GPP standards, and GSMA guidelines.
 
 | Attribute         | Value                                                              |
 |-------------------|--------------------------------------------------------------------|
-| Type              | BSS · OSS · 5G Core · MVNO Platform · IoT Connectivity             |
+| Type              | BSS Â· OSS Â· 5G Core Â· MVNO Platform Â· IoT Connectivity             |
 | Domains           | 17 business domains                                                |
 | Services          | 200+ microservices                                                 |
 | Languages         | Go, Java, Kotlin, Python, Rust, Erlang (telecom signalling), Scala |
@@ -53,38 +53,38 @@ Compliant with TM Forum Open APIs, 3GPP standards, and GSMA guidelines.
 ## Architecture
 
 ```
-    ┌──────────────────────────────────────────────────────────────────┐
-    │              Cloudflare Edge (WAF + Global CDN)                  │
-    └──────────────────────────┬───────────────────────────────────────┘
-                               │
-    ┌──────────────────────────▼───────────────────────────────────────┐
-    │                       API Gateway (TM Forum Open API)            │
-    │          (OAuth2 · mTLS · Rate Limit · Subscriber Auth)          │
-    └────┬──────────────┬───────────────┬──────────────┬───────────────┘
-         │              │               │              │
-  ┌──────▼──┐    ┌──────▼───┐   ┌───────▼──┐   ┌──────▼──────────┐
-  │Self-Svc │    │  NOC     │   │ Partner  │   │ Operations     │
-  │(Next.js)│    │(Angular) │   │ Portal   │   │  Portal(React) │
-  └──────┬──┘    └──────┬───┘   └───────┬──┘   └──────┬──────────┘
-         └──────────────┴───────────────┴──────────────┘
-                                │ gRPC (Istio mTLS)
-    ┌───────────────────────────▼────────────────────────────────────┐
-    │                    BSS Layer (Business)                        │
-    │  ┌──────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐  │
-    │  │Subscriber│  │  Billing   │  │  Order     │  │  Fraud     │  │
-    │  │  Mgmt    │  │  & Rating  │  │  & Provn   │  │  Mgmt      │  │
-    │  └──────────┘  └────────────┘  └────────────┘  └────────────┘  │
-    └──────────────────────┬─────────────────────────────────────────┘
-                           │ Kafka (Telecom Events / CDRs)
-    ┌──────────────────────▼─────────────────────────────────────────┐
-    │                    OSS Layer (Network)                          │
-    │  ┌────────────────┐    ┌──────────────┐    ┌─────────────────┐ │
-    │  │  5G Core NFs   │    │  Network     │    │  Roaming &      │ │
-    │  │ (AMF/SMF/UPF)  │    │  Inventory   │    │  Interconnect   │ │
-    │  └────────┬───────┘    └──────┬───────┘    └────────┬────────┘ │
-    │           │                   │                      │          │
-    │   Radio Access Network   Core Network            Partner NWs   │
-    └────────────────────────────────────────────────────────────────┘
+    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+    â”‚              Cloudflare Edge (WAF + Global CDN)                  â”‚
+    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                               â”‚
+    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â–¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+    â”‚                       API Gateway (TM Forum Open API)            â”‚
+    â”‚          (OAuth2 Â· mTLS Â· Rate Limit Â· Subscriber Auth)          â”‚
+    â””â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+         â”‚              â”‚               â”‚              â”‚
+  â”Œâ”€â”€â”€â”€â”€â”€â–¼â”€â”€â”    â”Œâ”€â”€â”€â”€â”€â”€â–¼â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â–¼â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â–¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+  â”‚Self-Svc â”‚    â”‚  NOC     â”‚   â”‚ Partner  â”‚   â”‚ Operations     â”‚
+  â”‚(Next.js)â”‚    â”‚(Angular) â”‚   â”‚ Portal   â”‚   â”‚  Portal(React) â”‚
+  â””â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”˜    â””â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+         â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                                â”‚ gRPC (Istio mTLS)
+    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â–¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+    â”‚                    BSS Layer (Business)                        â”‚
+    â”‚  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”  â”‚
+    â”‚  â”‚Subscriberâ”‚  â”‚  Billing   â”‚  â”‚  Order     â”‚  â”‚  Fraud     â”‚  â”‚
+    â”‚  â”‚  Mgmt    â”‚  â”‚  & Rating  â”‚  â”‚  & Provn   â”‚  â”‚  Mgmt      â”‚  â”‚
+    â”‚  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜  â”‚
+    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                           â”‚ Kafka (Telecom Events / CDRs)
+    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â–¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+    â”‚                    OSS Layer (Network)                          â”‚
+    â”‚  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”‚
+    â”‚  â”‚  5G Core NFs   â”‚    â”‚  Network     â”‚    â”‚  Roaming &      â”‚ â”‚
+    â”‚  â”‚ (AMF/SMF/UPF)  â”‚    â”‚  Inventory   â”‚    â”‚  Interconnect   â”‚ â”‚
+    â”‚  â””â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”˜    â””â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”˜    â””â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â”‚
+    â”‚           â”‚                   â”‚                      â”‚          â”‚
+    â”‚   Radio Access Network   Core Network            Partner NWs   â”‚
+    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ---
@@ -92,60 +92,60 @@ Compliant with TM Forum Open APIs, 3GPP standards, and GSMA guidelines.
 ## Tech Stack
 
 ### Telecom Standards & Protocols
-- **3GPP 5G**: SA (Standalone) 5G core — AMF, SMF, UPF, PCF, NSSF as cloud-native network functions
-- **DIAMETER**: Authentication, authorisation, accounting protocol (AAA) for LTE/5G core
-- **SIP / VoIP**: Session Initiation Protocol — voice and video call signalling
-- **SS7 / SIGTRAN**: Legacy signalling (SMS-MO/MT, HLR queries) via SIGTRAN adaptation
-- **SMPP**: Short Message Peer-to-Peer — bulk SMS gateway and termination
-- **TM Forum Open APIs**: Standardised BSS/OSS APIs (TMF620 Product Catalogue, TMF641 Service Activation)
-- **TAP3 / RAP**: Transferred Account Procedure — GSM roaming data exchange between operators
+- 3GPP 5G: SA (Standalone) 5G core â€” AMF, SMF, UPF, PCF, NSSF as cloud-native network functions
+- DIAMETER: Authentication, authorisation, accounting protocol (AAA) for LTE/5G core
+- SIP / VoIP: Session Initiation Protocol â€” voice and video call signalling
+- SS7 / SIGTRAN: Legacy signalling (SMS-MO/MT, HLR queries) via SIGTRAN adaptation
+- SMPP: Short Message Peer-to-Peer â€” bulk SMS gateway and termination
+- TM Forum Open APIs: Standardised BSS/OSS APIs (TMF620 Product Catalogue, TMF641 Service Activation)
+- TAP3 / RAP: Transferred Account Procedure â€” GSM roaming data exchange between operators
 
 ### Infrastructure
-- **Kubernetes**: EKS (BSS/analytics) + bare-metal K8s (network functions — ultra-low latency)
-- **Telecom Workloads**: Erlang/OTP (telecom signalling gateway — SIGTRAN, SS7, DIAMETER) for carrier-grade reliability
-- **Mediation**: High-throughput CDR (Call Detail Record) mediation — 100K+ CDRs/second via Kafka + Flink
-- **Time-Series**: TimescaleDB (network KPIs, utilisation trends); ClickHouse (CDR analytics, revenue reporting)
-- **Real-time Rating**: In-memory Hazelcast-backed rating cache — sub-10ms balance check for prepaid subscribers
+- Kubernetes: EKS (BSS/analytics) + bare-metal K8s (network functions â€” ultra-low latency)
+- Telecom Workloads: Erlang/OTP (telecom signalling gateway â€” SIGTRAN, SS7, DIAMETER) for carrier-grade reliability
+- Mediation: High-throughput CDR (Call Detail Record) mediation â€” 100K+ CDRs/second via Kafka + Flink
+- Time-Series: TimescaleDB (network KPIs, utilisation trends); ClickHouse (CDR analytics, revenue reporting)
+- Real-time Rating: In-memory Hazelcast-backed rating cache â€” sub-10ms balance check for prepaid subscribers
 
 ### CI/CD & GitOps
-- **CI**: Jenkins (primary), GitLab CI (self-hosted for OAM network builds), Tekton
-- **CD**: ArgoCD (BSS layer), Helm Operator (network functions — controlled rollout with traffic drain)
-- **IaC**: Terraform (EKS + VPC), Ansible (bare-metal server provisioning and hardening)
-- **Secrets**: HashiCorp Vault (roaming partner credentials, DIAMETER shared secrets)
+- CI: Jenkins (primary), GitLab CI (self-hosted for OAM network builds), Tekton
+- CD: ArgoCD (BSS layer), Helm Operator (network functions â€” controlled rollout with traffic drain)
+- IaC: Terraform (EKS + VPC), Ansible (bare-metal server provisioning and hardening)
+- Secrets: HashiCorp Vault (roaming partner credentials, DIAMETER shared secrets)
 
 ### Observability
-- **Metrics**: Prometheus + Grafana (BHCA, Erlang B blocking, network utilisation, CDR processing lag)
-- **Logs**: Loki + Fluent Bit (CALEA-compliant lawful intercept audit logs — immutable, law enforcement access)
-- **Traces**: Jaeger + OpenTelemetry (trace subscriber session from attach → service request → CDR → billing)
-- **NOC Dashboard**: Real-time network topology, alarm correlation, KPI trends (Grafana + ClickHouse)
-- **SLOs**: CDR processing latency < 5s, provisioning SLA < 30s, billing accuracy > 99.99%
+- Metrics: Prometheus + Grafana (BHCA, Erlang B blocking, network utilisation, CDR processing lag)
+- Logs: Loki + Fluent Bit (CALEA-compliant lawful intercept audit logs â€” immutable, law enforcement access)
+- Traces: Jaeger + OpenTelemetry (trace subscriber session from attach â†’ service request â†’ CDR â†’ billing)
+- NOC Dashboard: Real-time network topology, alarm correlation, KPI trends (Grafana + ClickHouse)
+- SLOs: CDR processing latency < 5s, provisioning SLA < 30s, billing accuracy > 99.99%
 
 ### Security (GDPR + CALEA)
-- **Identity**: Keycloak (subscriber self-service + social login), operator MFA mandatory for NOC access
-- **Lawful Intercept**: CALEA/ETSI LI-compliant interception (mediation function to law enforcement agency)
-- **SIM Swap Fraud**: Real-time SIM swap detection (velocity check + biometric re-auth) — prevents account takeover
-- **SS7 Security**: SS7 firewall (open-source STP) — blocks location tracking and IMSI catchers
-- **Network**: Cilium eBPF (IT), dedicated VLANs (OAM), Istio mTLS, Cloudflare WAF
+- Identity: Keycloak (subscriber self-service + social login), operator MFA mandatory for NOC access
+- Lawful Intercept: CALEA/ETSI LI-compliant interception (mediation function to law enforcement agency)
+- SIM Swap Fraud: Real-time SIM swap detection (velocity check + biometric re-auth) â€” prevents account takeover
+- SS7 Security: SS7 firewall (open-source STP) â€” blocks location tracking and IMSI catchers
+- Network: Cilium eBPF (IT), dedicated VLANs (OAM), Istio mTLS, Cloudflare WAF
 
 ### AI / ML (Network Intelligence)
-- **Network Anomaly Detection**: LSTM autoencoder on KPI timeseries — detects performance degradation before customer impact
-- **Churn Prediction**: Gradient Boosting on usage patterns, ARPU trend, complaints history — 30-day churn score per subscriber
-- **Revenue Assurance**: ML-based discrepancy detection (network usage vs. CDR vs. billing) — identifies revenue leakage
-- **Capacity Planning**: Prophet + XGBoost — 90-day traffic forecast per cell site for capacity upgrade planning
-- **Fraud Detection**: Real-time Wangiri (missed call) and bypass fraud detection on SMPP/SIP traffic
-- **Predictive Maintenance**: Anomaly detection on network element KPIs — predicts hardware failure 48h ahead
-- **Dynamic QoS**: RL agent for 5G network slicing — allocates network resources based on SLA and real-time demand
+- Network Anomaly Detection: LSTM autoencoder on KPI timeseries â€” detects performance degradation before customer impact
+- Churn Prediction: Gradient Boosting on usage patterns, ARPU trend, complaints history â€” 30-day churn score per subscriber
+- Revenue Assurance: ML-based discrepancy detection (network usage vs. CDR vs. billing) â€” identifies revenue leakage
+- Capacity Planning: Prophet + XGBoost â€” 90-day traffic forecast per cell site for capacity upgrade planning
+- Fraud Detection: Real-time Wangiri (missed call) and bypass fraud detection on SMPP/SIP traffic
+- Predictive Maintenance: Anomaly detection on network element KPIs â€” predicts hardware failure 48h ahead
+- Dynamic QoS: RL agent for 5G network slicing â€” allocates network resources based on SLA and real-time demand
 
 ---
 
 ## Key Design Decisions
 
-1. **Erlang for signalling gateway**: DIAMETER, SIP, and SS7/SIGTRAN processing in Erlang/OTP — carrier-grade fault tolerance (9 nines), hot-code upgrades without downtime
-2. **CDR mediation as a stream**: Call Detail Records processed in real-time via Kafka + Flink — no batch mediation window; enables real-time balance deduction for prepaid and near-real-time billing for postpaid
-3. **TM Forum API compliance**: All BSS APIs expose TM Forum Open API schemas — plug-and-play with third-party OSS/BSS components, reduces integration cost
-4. **5G core as cloud-native NFs**: AMF/SMF/UPF implemented as standard Kubernetes pods (not VMs) — horizontal scaling during peak hours, NSSF-driven network slicing for enterprise SLAs
-5. **Multi-MVNO platform**: Full MVNO isolation at subscriber, product, billing, and network level — single SignalGrid deployment hosts multiple MVNOs with separate branding and tariff plans
-6. **Revenue assurance by design**: Network usage events, CDRs, and billing records stored in separate Kafka topics and reconciled by dedicated service — discrepancies trigger alerts before revenue is lost
+1. Erlang for signalling gateway: DIAMETER, SIP, and SS7/SIGTRAN processing in Erlang/OTP â€” carrier-grade fault tolerance (9 nines), hot-code upgrades without downtime
+2. CDR mediation as a stream: Call Detail Records processed in real-time via Kafka + Flink â€” no batch mediation window; enables real-time balance deduction for prepaid and near-real-time billing for postpaid
+3. TM Forum API compliance: All BSS APIs expose TM Forum Open API schemas â€” plug-and-play with third-party OSS/BSS components, reduces integration cost
+4. 5G core as cloud-native NFs: AMF/SMF/UPF implemented as standard Kubernetes pods (not VMs) â€” horizontal scaling during peak hours, NSSF-driven network slicing for enterprise SLAs
+5. Multi-MVNO platform: Full MVNO isolation at subscriber, product, billing, and network level â€” single SignalGrid deployment hosts multiple MVNOs with separate branding and tariff plans
+6. Revenue assurance by design: Network usage events, CDRs, and billing records stored in separate Kafka topics and reconciled by dedicated service â€” discrepancies trigger alerts before revenue is lost
 
 ---
 
@@ -154,10 +154,10 @@ Compliant with TM Forum Open APIs, 3GPP standards, and GSMA guidelines.
 | Standard          | Implementation                                                         |
 |-------------------|------------------------------------------------------------------------|
 | GDPR / ePrivacy   | Subscriber PII minimisation, consent, location data retention limits   |
-| CALEA             | Lawful intercept mediation function — LEA delivery interface           |
+| CALEA             | Lawful intercept mediation function â€” LEA delivery interface           |
 | OFCOM / FCC       | Number portability, emergency services, consumer protection rules      |
-| GSMA SG.24        | SIM swap fraud prevention — biometric re-authentication requirement    |
-| 3GPP TS 33.501    | 5G SA security architecture — subscriber identity privacy (SUCI)       |
+| GSMA SG.24        | SIM swap fraud prevention â€” biometric re-authentication requirement    |
+| 3GPP TS 33.501    | 5G SA security architecture â€” subscriber identity privacy (SUCI)       |
 
 ---
 

@@ -1,8 +1,8 @@
-# ussd-service
+﻿# ussd-service
 
-Service in the **vas** domain of SignalGrid.
+Service in the vas domain of SignalGrid.
 
-**Language:** Go · **Port:** 50321
+Language: Go Â· Port: 50321
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/ussd-service/](../../../helm/charts/ussd-service/) — Helm chart
-- [manifests/vas/ussd-service/](../../../manifests/vas/ussd-service/) — Raw K8s manifests
+- [helm/charts/ussd-service/](../../../helm/charts/ussd-service/) â€” Helm chart
+- [manifests/vas/ussd-service/](../../../manifests/vas/ussd-service/) â€” Raw K8s manifests

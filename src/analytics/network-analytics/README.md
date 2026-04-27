@@ -1,8 +1,8 @@
-# network-analytics
+﻿# network-analytics
 
-Service in the **analytics** domain of SignalGrid.
+Service in the analytics domain of SignalGrid.
 
-**Language:** Go · **Port:** 50300
+Language: Go Â· Port: 50300
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/network-analytics/](../../../helm/charts/network-analytics/) — Helm chart
-- [manifests/analytics/network-analytics/](../../../manifests/analytics/network-analytics/) — Raw K8s manifests
+- [helm/charts/network-analytics/](../../../helm/charts/network-analytics/) â€” Helm chart
+- [manifests/analytics/network-analytics/](../../../manifests/analytics/network-analytics/) â€” Raw K8s manifests

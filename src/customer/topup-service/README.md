@@ -1,8 +1,8 @@
-# topup-service
+﻿# topup-service
 
-Service in the **customer** domain of SignalGrid.
+Service in the customer domain of SignalGrid.
 
-**Language:** Go · **Port:** 50223
+Language: Go Â· Port: 50223
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/topup-service/](../../../helm/charts/topup-service/) — Helm chart
-- [manifests/customer/topup-service/](../../../manifests/customer/topup-service/) — Raw K8s manifests
+- [helm/charts/topup-service/](../../../helm/charts/topup-service/) â€” Helm chart
+- [manifests/customer/topup-service/](../../../manifests/customer/topup-service/) â€” Raw K8s manifests

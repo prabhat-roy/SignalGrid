@@ -1,8 +1,8 @@
-# upf-service
+﻿# upf-service
 
-Service in the **5g-core** domain of SignalGrid.
+Service in the 5g-core domain of SignalGrid.
 
-**Language:** Go · **Port:** 50162
+Language: Go Â· Port: 50162
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/upf-service/](../../../helm/charts/upf-service/) — Helm chart
-- [manifests/5g-core/upf-service/](../../../manifests/5g-core/upf-service/) — Raw K8s manifests
+- [helm/charts/upf-service/](../../../helm/charts/upf-service/) â€” Helm chart
+- [manifests/5g-core/upf-service/](../../../manifests/5g-core/upf-service/) â€” Raw K8s manifests

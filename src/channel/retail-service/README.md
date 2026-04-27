@@ -1,8 +1,8 @@
-# retail-service
+﻿# retail-service
 
-Service in the **channel** domain of SignalGrid.
+Service in the channel domain of SignalGrid.
 
-**Language:** Go · **Port:** 50243
+Language: Go Â· Port: 50243
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/retail-service/](../../../helm/charts/retail-service/) — Helm chart
-- [manifests/channel/retail-service/](../../../manifests/channel/retail-service/) — Raw K8s manifests
+- [helm/charts/retail-service/](../../../helm/charts/retail-service/) â€” Helm chart
+- [manifests/channel/retail-service/](../../../manifests/channel/retail-service/) â€” Raw K8s manifests

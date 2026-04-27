@@ -1,4 +1,4 @@
-# billing
+﻿# billing
 
 Billing, mediation, rating, invoicing, dunning (TM Forum TMF678).
 
@@ -11,5 +11,5 @@ Billing, mediation, rating, invoicing, dunning (TM Forum TMF678).
 | dunning-service | Java | 50084 | Dunning workflow |
 | tax-engine | Java | 50085 | Tax calculation by jurisdiction |
 
-CDR processing is **idempotent** on `(network_element, charging_id)` — see
+CDR processing is idempotent on `(network_element, charging_id)` â€” see
 [security/opa/policies/cdr-idempotency.rego](../../security/opa/policies/cdr-idempotency.rego).

@@ -1,8 +1,8 @@
-# dunning-service
+﻿# dunning-service
 
-Service in the **billing** domain of SignalGrid.
+Service in the billing domain of SignalGrid.
 
-**Language:** Go · **Port:** 50103
+Language: Go Â· Port: 50103
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/dunning-service/](../../../helm/charts/dunning-service/) — Helm chart
-- [manifests/billing/dunning-service/](../../../manifests/billing/dunning-service/) — Raw K8s manifests
+- [helm/charts/dunning-service/](../../../helm/charts/dunning-service/) â€” Helm chart
+- [manifests/billing/dunning-service/](../../../manifests/billing/dunning-service/) â€” Raw K8s manifests

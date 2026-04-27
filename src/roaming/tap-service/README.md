@@ -1,8 +1,8 @@
-# tap-service
+﻿# tap-service
 
-Service in the **roaming** domain of SignalGrid.
+Service in the roaming domain of SignalGrid.
 
-**Language:** Go · **Port:** 50180
+Language: Go Â· Port: 50180
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/tap-service/](../../../helm/charts/tap-service/) — Helm chart
-- [manifests/roaming/tap-service/](../../../manifests/roaming/tap-service/) — Raw K8s manifests
+- [helm/charts/tap-service/](../../../helm/charts/tap-service/) â€” Helm chart
+- [manifests/roaming/tap-service/](../../../manifests/roaming/tap-service/) â€” Raw K8s manifests

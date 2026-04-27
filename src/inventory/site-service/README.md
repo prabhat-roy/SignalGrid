@@ -1,8 +1,8 @@
-# site-service
+﻿# site-service
 
-Service in the **inventory** domain of SignalGrid.
+Service in the inventory domain of SignalGrid.
 
-**Language:** Go · **Port:** 50121
+Language: Go Â· Port: 50121
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/site-service/](../../../helm/charts/site-service/) — Helm chart
-- [manifests/inventory/site-service/](../../../manifests/inventory/site-service/) — Raw K8s manifests
+- [helm/charts/site-service/](../../../helm/charts/site-service/) â€” Helm chart
+- [manifests/inventory/site-service/](../../../manifests/inventory/site-service/) â€” Raw K8s manifests

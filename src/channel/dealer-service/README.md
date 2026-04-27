@@ -1,8 +1,8 @@
-# dealer-service
+﻿# dealer-service
 
-Service in the **channel** domain of SignalGrid.
+Service in the channel domain of SignalGrid.
 
-**Language:** Go · **Port:** 50240
+Language: Go Â· Port: 50240
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/dealer-service/](../../../helm/charts/dealer-service/) — Helm chart
-- [manifests/channel/dealer-service/](../../../manifests/channel/dealer-service/) — Raw K8s manifests
+- [helm/charts/dealer-service/](../../../helm/charts/dealer-service/) â€” Helm chart
+- [manifests/channel/dealer-service/](../../../manifests/channel/dealer-service/) â€” Raw K8s manifests

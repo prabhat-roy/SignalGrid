@@ -1,8 +1,8 @@
-# alarm-correlation
+﻿# alarm-correlation
 
-Service in the **nms** domain of SignalGrid.
+Service in the nms domain of SignalGrid.
 
-**Language:** Go · **Port:** 50143
+Language: Go Â· Port: 50143
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/alarm-correlation/](../../../helm/charts/alarm-correlation/) — Helm chart
-- [manifests/nms/alarm-correlation/](../../../manifests/nms/alarm-correlation/) — Raw K8s manifests
+- [helm/charts/alarm-correlation/](../../../helm/charts/alarm-correlation/) â€” Helm chart
+- [manifests/nms/alarm-correlation/](../../../manifests/nms/alarm-correlation/) â€” Raw K8s manifests

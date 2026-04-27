@@ -1,8 +1,8 @@
-# aa-service
+﻿# aa-service
 
-Service in the **roaming** domain of SignalGrid.
+Service in the roaming domain of SignalGrid.
 
-**Language:** Go · **Port:** 50183
+Language: Go Â· Port: 50183
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/aa-service/](../../../helm/charts/aa-service/) — Helm chart
-- [manifests/roaming/aa-service/](../../../manifests/roaming/aa-service/) — Raw K8s manifests
+- [helm/charts/aa-service/](../../../helm/charts/aa-service/) â€” Helm chart
+- [manifests/roaming/aa-service/](../../../manifests/roaming/aa-service/) â€” Raw K8s manifests

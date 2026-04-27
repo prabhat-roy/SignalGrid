@@ -1,8 +1,8 @@
-# ops-bff
+﻿# ops-bff
 
 BFF for operations portal (React)
 
-**Domain:** `platform` · **Language:** go · **Port:** 50005
+Domain: `platform` Â· Language: go Â· Port: 50005
 
 ## Run locally
 

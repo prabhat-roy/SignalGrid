@@ -1,4 +1,4 @@
-# AI_PLAN.md — SignalGrid (Telco / 5G Operator Platform)
+﻿# AI_PLAN.md â€” SignalGrid (Telco / 5G Operator Platform)
 
 > Hierarchical AI/ML strategy. Reuses the Paperclip / OpenClaw / NemoClaw
 > agent platform first defined in [ShopOS/AI.md](../ShopOS/AI.md). This file
@@ -11,11 +11,11 @@
 A modern telco runs on streaming KPIs (RAN, core, transport, billing,
 fraud) at PB scale. AI is the operating system for:
 
-- **RAN optimisation** — coverage, capacity, load balancing, energy.
-- **Network anomaly detection** — silent failures, slow degradations.
-- **Customer-experience prediction** — churn, NPS, complaint forecasting.
-- **Voice / chat care agents** — multilingual, low-latency, 24/7.
-- **Fraud detection** — IRSF, SIM-swap, Wangiri, traffic pumping.
+- RAN optimisation â€” coverage, capacity, load balancing, energy.
+- Network anomaly detection â€” silent failures, slow degradations.
+- Customer-experience prediction â€” churn, NPS, complaint forecasting.
+- Voice / chat care agents â€” multilingual, low-latency, 24/7.
+- Fraud detection â€” IRSF, SIM-swap, Wangiri, traffic pumping.
 
 3GPP, ETSI ZSM (zero-touch service management), TM Forum AI/ML APIs
 provide the standards the AI plane plugs into.
@@ -36,21 +36,21 @@ provide the standards the AI plane plugs into.
 | 8 | Demand forecast (data, voice, SMS, IoT) | planning | NHITS + Temporal Fusion Transformer | hourly |
 | 9 | Complaint root-cause + ticket auto-route | care, ops | Llama 3.1 70B + KG + classifier | <1 s |
 | 10 | Field-engineer dispatch optimisation | field-ops | OR-Tools + LightGBM travel-time priors | <30 s |
-| 11 | Beam-management (mMIMO) — proxy with AI | ran | Custom RL / supervised proxies | streaming |
+| 11 | Beam-management (mMIMO) â€” proxy with AI | ran | Custom RL / supervised proxies | streaming |
 | 12 | Fraud / quality-of-service NLP on call recordings | fraud, quality | Whisper + Llama 3.1 + sentiment | nightly |
 
 ---
 
 ## 3. Hierarchical Agent Architecture
 
-Reuses **OpenClaw** / **Paperclip** / **NemoClaw** from `ShopOS/AI.md`.
+Reuses OpenClaw / Paperclip / NemoClaw from `ShopOS/AI.md`.
 
-### Tier 0 — Master Architect Agent
+### Tier 0 â€” Master Architect Agent
 
-`signal-architect` — researches AI tooling, proposes services, on-boards
+`signal-architect` â€” researches AI tooling, proposes services, on-boards
 Tier-1 leads, weekly written report. Read-only on prod.
 
-### Tier 1 — Division Leads (5)
+### Tier 1 â€” Division Leads (5)
 
 | Agent | Scope |
 |-------|-------|
@@ -60,32 +60,32 @@ Tier-1 leads, weekly written report. Read-only on prod.
 | `signal-dataml-lead`     | Feature store, training, drift, edge models |
 | `signal-platform-lead`   | Cross-cutting (idempotency, saga, outbox), edge runtime |
 
-### Tier 2 — Specialist Agents
+### Tier 2 â€” Specialist Agents
 
-**By language**: Go, Java, Kotlin, Python, Node, Rust, C++ (RAN bridge),
+By language: Go, Java, Kotlin, Python, Node, Rust, C++ (RAN bridge),
 TypeScript.
 
-**By tool**: PostgreSQL, MongoDB, Redis, Cassandra, ClickHouse,
+By tool: PostgreSQL, MongoDB, Redis, Cassandra, ClickHouse,
 TimescaleDB, Kafka, NATS, RabbitMQ, MQTT, Vault, Keycloak, OPA, Kyverno,
 Falco, Cilium, Istio, ArgoCD, Argo Workflows, Prometheus, Grafana, Loki,
 Jaeger, OpenTelemetry, MinIO, Trivy, Cosign, OpenSearch, Pulsar, Druid,
-Camunda, OpenFGA, Wazuh, **Open5GS** (5G core), **srsRAN** (RAN),
-**Magma** (access gateway), **OAI** (OpenAirInterface), **Free5GC**,
-**Kamailio / OpenSIPS** (VoLTE/VoNR), **OpenCharge** (charging),
-**Asterisk / FreeSWITCH** (voice), **Apache Pinot** (real-time KPIs).
+Camunda, OpenFGA, Wazuh, Open5GS (5G core), srsRAN (RAN),
+Magma (access gateway), OAI (OpenAirInterface), Free5GC,
+Kamailio / OpenSIPS (VoLTE/VoNR), OpenCharge (charging),
+Asterisk / FreeSWITCH (voice), Apache Pinot (real-time KPIs).
 
-**By service** — one agent per microservice (~210). Owns README,
+By service â€” one agent per microservice (~210). Owns README,
 OpenAPI, tests, CHANGELOG, deps, /healthz.
 
-### Tier 3 — Ephemeral Workers
+### Tier 3 â€” Ephemeral Workers
 
 Spawned for retraining churn weekly, generating IRSF runbooks, building
 edge bundles for cell-site analytics.
 
 ### Lifecycle
 
-Research → Document → Implement → Test → Review → Deploy → Monitor →
-Respond → Upgrade → Report. Network-availability freeze: NemoClaw blocks
+Research â†’ Document â†’ Implement â†’ Test â†’ Review â†’ Deploy â†’ Monitor â†’
+Respond â†’ Upgrade â†’ Report. Network-availability freeze: NemoClaw blocks
 agent-driven config pushes during peak hours and during P1 incidents.
 
 ---
@@ -94,27 +94,27 @@ agent-driven config pushes during peak hours and during P1 incidents.
 
 ```
 ai-platform/
-├── cluster: signal-ai-{aws,gcp,azure}    ← cloud GPU pool
-├── cluster: signal-ai-edge               ← MEC nodes (cell-site clusters)
-├── namespace: signal-ai-control           ← Paperclip
-├── namespace: signal-ai-agents            ← OpenClaw runtime
-├── namespace: signal-ai-sandbox           ← NemoClaw
-├── namespace: signal-ai-models            ← vLLM, Ollama, LiteLLM, Triton
-├── namespace: signal-ai-data              ← Qdrant, Weaviate, MinIO, MLflow
-├── namespace: signal-ai-obs               ← Langfuse, Phoenix
-└── namespace: signal-ai-pipelines         ← Argo Workflows
+â”œâ”€â”€ cluster: signal-ai-{aws,gcp,azure}    â† cloud GPU pool
+â”œâ”€â”€ cluster: signal-ai-edge               â† MEC nodes (cell-site clusters)
+â”œâ”€â”€ namespace: signal-ai-control           â† Paperclip
+â”œâ”€â”€ namespace: signal-ai-agents            â† OpenClaw runtime
+â”œâ”€â”€ namespace: signal-ai-sandbox           â† NemoClaw
+â”œâ”€â”€ namespace: signal-ai-models            â† vLLM, Ollama, LiteLLM, Triton
+â”œâ”€â”€ namespace: signal-ai-data              â† Qdrant, Weaviate, MinIO, MLflow
+â”œâ”€â”€ namespace: signal-ai-obs               â† Langfuse, Phoenix
+â””â”€â”€ namespace: signal-ai-pipelines         â† Argo Workflows
 ```
 
 ### Hardware
 
-- **Cloud / regional DC**: A100 for training; A10G/L4 for LLM inference.
-- **MEC** (multi-access edge): k3s on commodity x86 with optional GPU
+- Cloud / regional DC: A100 for training; A10G/L4 for LLM inference.
+- MEC (multi-access edge): k3s on commodity x86 with optional GPU
   for streaming anomaly detection and voice STT.
 
 ### Software stack
 
 Standard set + telco bridges listed in tool-agents above. Voice via
-**Whisper + Coqui TTS** for self-hosted 24/7 care.
+Whisper + Coqui TTS for self-hosted 24/7 care.
 
 ### Data isolation
 
@@ -145,7 +145,7 @@ Standard set + telco bridges listed in tool-agents above. Voice via
 | 2 | Paperclip + NemoClaw; Tier-0 architect live |
 | 3 | Tier-1 leads; anomaly v0 shadow on KPI stream |
 | 4 | Per-language / per-tool Tier-2 agents |
-| 5 | Per-service Tier-2 agents (ran → core → care first) |
+| 5 | Per-service Tier-2 agents (ran â†’ core â†’ care first) |
 | 6 | Care chat agent v1; fraud GBM v1 |
 | 7 | Churn v1; voice care pilot in 2 markets |
 | 8 | RAN energy-savings v1 in 1 market; multi-cloud failover drill |
@@ -154,9 +154,9 @@ Standard set + telco bridges listed in tool-agents above. Voice via
 
 ## 7. Cost Envelope (target)
 
-- **Cloud / regional DC infra**: $7,000 – $11,500 / month per market
-- **MEC edge (per cell-site cluster)**: $1,200 one-time + $40/month ops
-- **No** subscription LLM spend
+- Cloud / regional DC infra: $7,000 â€“ $11,500 / month per market
+- MEC edge (per cell-site cluster): $1,200 one-time + $40/month ops
+- No subscription LLM spend
 
 ---
 

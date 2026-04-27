@@ -1,8 +1,8 @@
-# fiber-service
+﻿# fiber-service
 
-Service in the **inventory** domain of SignalGrid.
+Service in the inventory domain of SignalGrid.
 
-**Language:** Go · **Port:** 50123
+Language: Go Â· Port: 50123
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/fiber-service/](../../../helm/charts/fiber-service/) — Helm chart
-- [manifests/inventory/fiber-service/](../../../manifests/inventory/fiber-service/) — Raw K8s manifests
+- [helm/charts/fiber-service/](../../../helm/charts/fiber-service/) â€” Helm chart
+- [manifests/inventory/fiber-service/](../../../manifests/inventory/fiber-service/) â€” Raw K8s manifests

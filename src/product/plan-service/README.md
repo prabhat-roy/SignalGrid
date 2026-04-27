@@ -1,5 +1,5 @@
-# plan-service
+﻿# plan-service
 
 Tariff plan definitions (postpaid, prepaid, hybrid)
 
-**Domain:** `product` · **Language:** java · **Port:** 50042
+Domain: `product` Â· Language: java Â· Port: 50042

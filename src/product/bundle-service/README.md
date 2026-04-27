@@ -1,5 +1,5 @@
-# bundle-service
+﻿# bundle-service
 
 Bundle composition (data + voice + SMS)
 
-**Domain:** `product` · **Language:** java · **Port:** 50041
+Domain: `product` Â· Language: java Â· Port: 50041

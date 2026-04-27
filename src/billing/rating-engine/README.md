@@ -1,8 +1,8 @@
-# rating-engine
+﻿# rating-engine
 
-Service in the **billing** domain of SignalGrid.
+Service in the billing domain of SignalGrid.
 
-**Language:** Go · **Port:** 50101
+Language: Go Â· Port: 50101
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/rating-engine/](../../../helm/charts/rating-engine/) — Helm chart
-- [manifests/billing/rating-engine/](../../../manifests/billing/rating-engine/) — Raw K8s manifests
+- [helm/charts/rating-engine/](../../../helm/charts/rating-engine/) â€” Helm chart
+- [manifests/billing/rating-engine/](../../../manifests/billing/rating-engine/) â€” Raw K8s manifests

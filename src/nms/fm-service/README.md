@@ -1,8 +1,8 @@
-# fm-service
+﻿# fm-service
 
-Service in the **nms** domain of SignalGrid.
+Service in the nms domain of SignalGrid.
 
-**Language:** Go · **Port:** 50140
+Language: Go Â· Port: 50140
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/fm-service/](../../../helm/charts/fm-service/) — Helm chart
-- [manifests/nms/fm-service/](../../../manifests/nms/fm-service/) — Raw K8s manifests
+- [helm/charts/fm-service/](../../../helm/charts/fm-service/) â€” Helm chart
+- [manifests/nms/fm-service/](../../../manifests/nms/fm-service/) â€” Raw K8s manifests

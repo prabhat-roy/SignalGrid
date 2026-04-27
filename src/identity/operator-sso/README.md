@@ -1,8 +1,8 @@
-# operator-sso
+﻿# operator-sso
 
-Service in the **identity** domain of SignalGrid.
+Service in the identity domain of SignalGrid.
 
-**Language:** Go · **Port:** 50022
+Language: Go Â· Port: 50022
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/operator-sso/](../../../helm/charts/operator-sso/) — Helm chart
-- [manifests/identity/operator-sso/](../../../manifests/identity/operator-sso/) — Raw K8s manifests
+- [helm/charts/operator-sso/](../../../helm/charts/operator-sso/) â€” Helm chart
+- [manifests/identity/operator-sso/](../../../manifests/identity/operator-sso/) â€” Raw K8s manifests

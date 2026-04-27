@@ -1,8 +1,8 @@
-# port-in-service
+﻿# port-in-service
 
-Service in the **order** domain of SignalGrid.
+Service in the order domain of SignalGrid.
 
-**Language:** Go · **Port:** 50082
+Language: Go Â· Port: 50082
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/port-in-service/](../../../helm/charts/port-in-service/) — Helm chart
-- [manifests/order/port-in-service/](../../../manifests/order/port-in-service/) — Raw K8s manifests
+- [helm/charts/port-in-service/](../../../helm/charts/port-in-service/) â€” Helm chart
+- [manifests/order/port-in-service/](../../../manifests/order/port-in-service/) â€” Raw K8s manifests

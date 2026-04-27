@@ -1,8 +1,8 @@
-# rbt-service
+﻿# rbt-service
 
-Service in the **vas** domain of SignalGrid.
+Service in the vas domain of SignalGrid.
 
-**Language:** Go · **Port:** 50322
+Language: Go Â· Port: 50322
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/rbt-service/](../../../helm/charts/rbt-service/) — Helm chart
-- [manifests/vas/rbt-service/](../../../manifests/vas/rbt-service/) — Raw K8s manifests
+- [helm/charts/rbt-service/](../../../helm/charts/rbt-service/) â€” Helm chart
+- [manifests/vas/rbt-service/](../../../manifests/vas/rbt-service/) â€” Raw K8s manifests

@@ -1,8 +1,8 @@
-# partner-bff
+﻿# partner-bff
 
 BFF for partner / MVNO portal (TM Forum APIs)
 
-**Domain:** `platform` · **Language:** go · **Port:** 50003
+Domain: `platform` Â· Language: go Â· Port: 50003
 
 ## Run locally
 

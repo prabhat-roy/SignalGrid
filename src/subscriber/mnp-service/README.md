@@ -1,5 +1,5 @@
-# mnp-service
+﻿# mnp-service
 
-Mobile Number Portability — port-in/out workflow
+Mobile Number Portability â€” port-in/out workflow
 
-**Domain:** `subscriber` · **Language:** java · **Port:** 50024
+Domain: `subscriber` Â· Language: java Â· Port: 50024

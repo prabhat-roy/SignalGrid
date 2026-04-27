@@ -1,4 +1,4 @@
-# 5g-core
+﻿# 5g-core
 
 3GPP 5G SA cloud-native network functions. Bare-metal Kubernetes + Helm Operator
 with traffic-drain rollouts.
@@ -14,4 +14,4 @@ with traffic-drain rollouts.
 | ausf-service | Go | 50146 | Authentication Server Function (5G-AKA) |
 | nrf-service | Go | 50147 | NF Repository Function |
 
-Deploys with **blue-green** strategy (mediation + 5G core); see CLAUDE.md.
+Deploys with blue-green strategy (mediation + 5G core); see CLAUDE.md.

@@ -1,8 +1,8 @@
-# fleet-service
+﻿# fleet-service
 
-Service in the **iot** domain of SignalGrid.
+Service in the iot domain of SignalGrid.
 
-**Language:** Go · **Port:** 50203
+Language: Go Â· Port: 50203
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/fleet-service/](../../../helm/charts/fleet-service/) — Helm chart
-- [manifests/iot/fleet-service/](../../../manifests/iot/fleet-service/) — Raw K8s manifests
+- [helm/charts/fleet-service/](../../../helm/charts/fleet-service/) â€” Helm chart
+- [manifests/iot/fleet-service/](../../../manifests/iot/fleet-service/) â€” Raw K8s manifests

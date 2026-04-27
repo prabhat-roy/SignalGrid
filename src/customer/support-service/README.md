@@ -1,8 +1,8 @@
-# support-service
+﻿# support-service
 
-Service in the **customer** domain of SignalGrid.
+Service in the customer domain of SignalGrid.
 
-**Language:** Go · **Port:** 50221
+Language: Go Â· Port: 50221
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/support-service/](../../../helm/charts/support-service/) — Helm chart
-- [manifests/customer/support-service/](../../../manifests/customer/support-service/) — Raw K8s manifests
+- [helm/charts/support-service/](../../../helm/charts/support-service/) â€” Helm chart
+- [manifests/customer/support-service/](../../../manifests/customer/support-service/) â€” Raw K8s manifests

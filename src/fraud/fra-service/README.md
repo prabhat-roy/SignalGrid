@@ -1,8 +1,8 @@
-# fra-service
+﻿# fra-service
 
-Service in the **fraud** domain of SignalGrid.
+Service in the fraud domain of SignalGrid.
 
-**Language:** Go · **Port:** 50260
+Language: Go Â· Port: 50260
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/fra-service/](../../../helm/charts/fra-service/) — Helm chart
-- [manifests/fraud/fra-service/](../../../manifests/fraud/fra-service/) — Raw K8s manifests
+- [helm/charts/fra-service/](../../../helm/charts/fra-service/) â€” Helm chart
+- [manifests/fraud/fra-service/](../../../manifests/fraud/fra-service/) â€” Raw K8s manifests

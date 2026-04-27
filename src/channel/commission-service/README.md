@@ -1,8 +1,8 @@
-# commission-service
+﻿# commission-service
 
-Service in the **channel** domain of SignalGrid.
+Service in the channel domain of SignalGrid.
 
-**Language:** Go · **Port:** 50242
+Language: Go Â· Port: 50242
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/commission-service/](../../../helm/charts/commission-service/) — Helm chart
-- [manifests/channel/commission-service/](../../../manifests/channel/commission-service/) — Raw K8s manifests
+- [helm/charts/commission-service/](../../../helm/charts/commission-service/) â€” Helm chart
+- [manifests/channel/commission-service/](../../../manifests/channel/commission-service/) â€” Raw K8s manifests

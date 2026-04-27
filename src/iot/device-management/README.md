@@ -1,8 +1,8 @@
-# device-management
+﻿# device-management
 
-Service in the **iot** domain of SignalGrid.
+Service in the iot domain of SignalGrid.
 
-**Language:** Go · **Port:** 50202
+Language: Go Â· Port: 50202
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/device-management/](../../../helm/charts/device-management/) — Helm chart
-- [manifests/iot/device-management/](../../../manifests/iot/device-management/) — Raw K8s manifests
+- [helm/charts/device-management/](../../../helm/charts/device-management/) â€” Helm chart
+- [manifests/iot/device-management/](../../../manifests/iot/device-management/) â€” Raw K8s manifests

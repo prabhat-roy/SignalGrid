@@ -1,8 +1,8 @@
-# mediation-service
+﻿# mediation-service
 
-Service in the **billing** domain of SignalGrid.
+Service in the billing domain of SignalGrid.
 
-**Language:** Go · **Port:** 50100
+Language: Go Â· Port: 50100
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/mediation-service/](../../../helm/charts/mediation-service/) — Helm chart
-- [manifests/billing/mediation-service/](../../../manifests/billing/mediation-service/) — Raw K8s manifests
+- [helm/charts/mediation-service/](../../../helm/charts/mediation-service/) â€” Helm chart
+- [manifests/billing/mediation-service/](../../../manifests/billing/mediation-service/) â€” Raw K8s manifests

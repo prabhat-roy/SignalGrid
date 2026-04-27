@@ -1,8 +1,8 @@
-# provisioning-service
+﻿# provisioning-service
 
-Service in the **order** domain of SignalGrid.
+Service in the order domain of SignalGrid.
 
-**Language:** Go · **Port:** 50080
+Language: Go Â· Port: 50080
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/provisioning-service/](../../../helm/charts/provisioning-service/) — Helm chart
-- [manifests/order/provisioning-service/](../../../manifests/order/provisioning-service/) — Raw K8s manifests
+- [helm/charts/provisioning-service/](../../../helm/charts/provisioning-service/) â€” Helm chart
+- [manifests/order/provisioning-service/](../../../manifests/order/provisioning-service/) â€” Raw K8s manifests

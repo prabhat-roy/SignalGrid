@@ -1,5 +1,5 @@
-# number-service
+﻿# number-service
 
 MSISDN range allocation, reservation, recycle
 
-**Domain:** `subscriber` · **Language:** java · **Port:** 50022
+Domain: `subscriber` Â· Language: java Â· Port: 50022

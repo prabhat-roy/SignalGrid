@@ -1,8 +1,8 @@
-# topology-service
+﻿# topology-service
 
-Service in the **inventory** domain of SignalGrid.
+Service in the inventory domain of SignalGrid.
 
-**Language:** Go · **Port:** 50120
+Language: Go Â· Port: 50120
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/topology-service/](../../../helm/charts/topology-service/) — Helm chart
-- [manifests/inventory/topology-service/](../../../manifests/inventory/topology-service/) — Raw K8s manifests
+- [helm/charts/topology-service/](../../../helm/charts/topology-service/) â€” Helm chart
+- [manifests/inventory/topology-service/](../../../manifests/inventory/topology-service/) â€” Raw K8s manifests

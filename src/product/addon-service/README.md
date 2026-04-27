@@ -1,5 +1,5 @@
-# addon-service
+﻿# addon-service
 
 Add-on packs (data top-up, roaming pack)
 
-**Domain:** `product` · **Language:** java · **Port:** 50043
+Domain: `product` Â· Language: java Â· Port: 50043

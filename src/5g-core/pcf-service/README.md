@@ -1,8 +1,8 @@
-# pcf-service
+﻿# pcf-service
 
-Service in the **5g-core** domain of SignalGrid.
+Service in the 5g-core domain of SignalGrid.
 
-**Language:** Go · **Port:** 50163
+Language: Go Â· Port: 50163
 
 ## Run locally
 
@@ -12,9 +12,9 @@ make run
 
 ## Endpoints
 
-- `GET /healthz` — health check, returns `{ "status": "ok" }`
+- `GET /healthz` â€” health check, returns `{ "status": "ok" }`
 
 ## See also
 
-- [helm/charts/pcf-service/](../../../helm/charts/pcf-service/) — Helm chart
-- [manifests/5g-core/pcf-service/](../../../manifests/5g-core/pcf-service/) — Raw K8s manifests
+- [helm/charts/pcf-service/](../../../helm/charts/pcf-service/) â€” Helm chart
+- [manifests/5g-core/pcf-service/](../../../manifests/5g-core/pcf-service/) â€” Raw K8s manifests
